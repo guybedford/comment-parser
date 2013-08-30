@@ -23,7 +23,7 @@ module.exports = function removeComments(str) {
     if (curChar === '\n' || curChar === '\r' || curChar === '') {
       regex = doubleQuote = singleQuote = doubleBackslash = false;
       if (lineComment) {
-        curOutIndex = i + 1;
+        curOutIndex = i;
         lineComment = false;
       }
       lastToken = '';
@@ -88,6 +88,7 @@ module.exports = function removeComments(str) {
         // a++ /foo/.abc
         regex = true;
       }
+    }
   }
   return outString + str.substr(curOutIndex);
 }
