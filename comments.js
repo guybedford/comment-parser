@@ -61,7 +61,6 @@ module.exports = function removeComments(str) {
           regex = doubleBackslash = false;
         }
         else if (lastChar !== '\\' || doubleBackslash) {
-          console.log(str.charAt(i + 1));
           regex = doubleBackslash = false;
           i++;
           lastToken = lastChar = curChar;
