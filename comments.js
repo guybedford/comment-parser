@@ -103,5 +103,5 @@ module.exports = function removeComments(str) {
     }
   }
   return outString + blockCommentWhitespace + str.substr(curOutIndex);
-  }
+}
         
