@@ -54,13 +54,13 @@ module.exports = function removeComments(str) {
     }
   
     else if (regex) {
-      if (curChar === '/') {
+      if (curChar === '/' && (lastChar !== '\\' || doubleBackslash)) {
         // a comment inside a regex immediately means we've misread the regex
         // so switch back to block mode to detect the comment
         if (str.charAt(i + 1) == '/') {
           regex = doubleBackslash = false;
         }
-        else if (lastChar !== '\\' || doubleBackslash) {
+        else {
           regex = doubleBackslash = false;
           i++;
           lastToken = lastChar = curChar;
